@@ -1564,6 +1564,7 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <part name="D1BYP" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ2W" device="" package3d_urn="urn:adsk.eagle:package:15474/1"/>
 <part name="D2BYP" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ2W" device="" package3d_urn="urn:adsk.eagle:package:15474/1"/>
 <part name="D5BYP" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ2W" device="" package3d_urn="urn:adsk.eagle:package:15474/1"/>
+<part name="I2C_VCC" library="jumper" library_urn="urn:adsk.eagle:library:252" deviceset="SJ2W" device="" package3d_urn="urn:adsk.eagle:package:15474/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -1646,6 +1647,10 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <instance part="D5BYP" gate="G$1" x="68.58" y="17.78" smashed="yes" rot="R180">
 <attribute name="VALUE" x="69.85" y="25.4" size="1.778" layer="96" rot="R180"/>
 <attribute name="NAME" x="67.31" y="14.478" size="1.778" layer="95" rot="R180"/>
+</instance>
+<instance part="I2C_VCC" gate="G$1" x="7.62" y="-25.4" smashed="yes" rot="R180">
+<attribute name="VALUE" x="8.89" y="-17.78" size="1.778" layer="96" rot="R180"/>
+<attribute name="NAME" x="21.59" y="-26.162" size="1.778" layer="95" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -1736,33 +1741,14 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <label x="5.08" y="40.64" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="5V" class="0">
+<net name="I2C_VCC" class="0">
 <segment>
 <pinref part="I2C/LED" gate="G$1" pin="1"/>
 <label x="101.6" y="-25.4" size="1.778" layer="95"/>
-<pinref part="10L" gate="G$1" pin="1"/>
-<junction x="15.24" y="33.02"/>
-<pinref part="BOL" gate="G$1" pin="1"/>
-<wire x1="2.54" y1="33.02" x2="10.16" y2="33.02" width="0.1524" layer="91"/>
-<junction x="-12.7" y="33.02"/>
-<wire x1="10.16" y1="33.02" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="33.02" x2="-7.62" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="09L" gate="G$1" pin="1"/>
-<junction x="2.54" y="33.02"/>
-<pinref part="JP1" gate="G$1" pin="3"/>
-<wire x1="-7.62" y1="33.02" x2="2.54" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="33.02" x2="-7.62" y2="106.68" width="0.1524" layer="91"/>
-<wire x1="-7.62" y1="106.68" x2="2.54" y2="106.68" width="0.1524" layer="91"/>
-<junction x="-7.62" y="33.02"/>
-<label x="5.08" y="33.02" size="1.778" layer="95"/>
-<label x="-5.08" y="106.68" size="1.778" layer="95"/>
-<wire x1="10.16" y1="33.02" x2="10.16" y2="-25.4" width="0.1524" layer="91"/>
-<junction x="10.16" y="33.02"/>
-<wire x1="116.84" y1="-25.4" x2="45.72" y2="-25.4" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="-25.4" x2="10.16" y2="-25.4" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="-35.56" x2="45.72" y2="-25.4" width="0.1524" layer="91"/>
-<junction x="45.72" y="-25.4"/>
-<pinref part="IC1" gate="P" pin="VCC"/>
+<wire x1="116.84" y1="-25.4" x2="12.7" y2="-25.4" width="0.1524" layer="91"/>
+<wire x1="12.7" y1="-25.4" x2="10.16" y2="-25.4" width="0.1524" layer="91"/>
+<pinref part="I2C_VCC" gate="G$1" pin="2"/>
+<junction x="12.7" y="-25.4"/>
 </segment>
 </net>
 <net name="D9" class="0">
@@ -1835,13 +1821,18 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <pinref part="10L" gate="G$1" pin="5"/>
 <junction x="15.24" y="43.18"/>
 <pinref part="BOL" gate="G$1" pin="5"/>
-<wire x1="-12.7" y1="43.18" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
 <junction x="-12.7" y="43.18"/>
 <wire x1="2.54" y1="43.18" x2="15.24" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="43.18" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="43.18" x2="-10.16" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="09L" gate="G$1" pin="5"/>
 <junction x="2.54" y="43.18"/>
 <label x="5.08" y="43.18" size="1.778" layer="95"/>
+<wire x1="-10.16" y1="43.18" x2="2.54" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="43.18" x2="-10.16" y2="-30.48" width="0.1524" layer="91"/>
+<junction x="-10.16" y="43.18"/>
+<pinref part="I2C_VCC" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="-30.48" x2="7.62" y2="-30.48" width="0.1524" layer="91"/>
+<label x="0" y="-30.48" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D1" class="0">
@@ -2290,11 +2281,50 @@ Source: http://www.nxp.com/documents/data_sheet/74ABT125.pdf</description>
 <wire x1="60.96" y1="15.24" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="5V" class="0">
+<segment>
+<pinref part="JP1" gate="G$1" pin="3"/>
+<wire x1="-7.62" y1="106.68" x2="2.54" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="10L" gate="G$1" pin="1"/>
+<junction x="15.24" y="33.02"/>
+<wire x1="2.54" y1="33.02" x2="7.62" y2="33.02" width="0.1524" layer="91"/>
+<pinref part="09L" gate="G$1" pin="1"/>
+<junction x="2.54" y="33.02"/>
+<wire x1="7.62" y1="33.02" x2="15.24" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="33.02" x2="2.54" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="33.02" x2="-7.62" y2="106.68" width="0.1524" layer="91"/>
+<junction x="-7.62" y="33.02"/>
+<pinref part="BOL" gate="G$1" pin="1"/>
+<junction x="-12.7" y="33.02"/>
+<wire x1="-12.7" y1="33.02" x2="-7.62" y2="33.02" width="0.1524" layer="91"/>
+<label x="5.08" y="33.02" size="1.778" layer="95"/>
+<label x="-5.08" y="106.68" size="1.778" layer="95"/>
+<pinref part="I2C_VCC" gate="G$1" pin="3"/>
+<wire x1="7.62" y1="-20.32" x2="7.62" y2="33.02" width="0.1524" layer="91"/>
+<junction x="7.62" y="33.02"/>
+<label x="10.16" y="-20.32" size="1.778" layer="95"/>
+<wire x1="-12.7" y1="33.02" x2="-12.7" y2="-35.56" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="P" pin="VCC"/>
+<wire x1="-12.7" y1="-35.56" x2="45.72" y2="-35.56" width="0.1524" layer="91"/>
+<label x="40.64" y="-35.56" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
+<approved hash="104,1,45.72,-35.56,IC1P,VCC,5V,,,"/>
 <approved hash="106,1,53.34,93.98,N$1,,,,,"/>
+<approved hash="110,1,30.48,86.36,EXTD5,GND,,,,"/>
+<approved hash="113,1,53.0809,96.5623,DHT,,,,,"/>
+<approved hash="113,1,121.962,-32.0091,I2C/LED,,,,,"/>
+<approved hash="113,1,26.4744,101.363,EXT,,,,,"/>
+<approved hash="113,1,3.55092,104.098,JP1,,,,,"/>
+<approved hash="113,1,68.1748,-17.78,D4BYP,,,,,"/>
+<approved hash="113,1,68.1748,60.96,D1BYP,,,,,"/>
+<approved hash="113,1,68.1748,35.56,D2BYP,,,,,"/>
+<approved hash="113,1,68.1748,17.78,D5BYP,,,,,"/>
+<approved hash="113,1,13.9615,-25.4,I2C_VCC,,,,,"/>
 </errors>
 </schematic>
 </drawing>
